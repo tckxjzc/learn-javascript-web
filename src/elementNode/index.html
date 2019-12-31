@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+    <title>元素节点</title>
+    <link rel="stylesheet" href="/static/lib/bootstrap.min.css" type="text/css"/>
+    <style>
+        body {
+            padding: 10px;
+        }
+
+        .card {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="c1" title="c1t" data-id="c1i">
+<!--            注释-->
+            test <span class="s1">span</span> 文字
+        </div>
+    </div>
+    <script>
+       var s1= document.querySelector('.s1');
+       var c1= document.querySelector('.c1');
+       console.log(`s1'parentNode is %o`,s1.parentNode);
+       console.log(`s1'parentElement is %o`,s1.parentElement);
+       console.log(`c1'childNodes is %o`,c1.childNodes);
+       console.log(`c1'children is %o`,c1.children);
+    </script>
+</div>
+<div id="wrapper">
+
+</div>
+<script>
+    (function () {
+        let size=10000*5;
+        var ow = document.getElementById('wrapper');
+        function a() {
+            console.time("createElement控制台计时器一");
+            // ow.style.display='none'
+            for (var i = 0; i < size; i++) {
+                var temp = document.createElement('p');
+                // temp.innerHTML = 'i';//太慢，能用innerText的别用innerHTML,一万个节点时候相差几十毫秒
+                temp.innerText = i;
+                ow.appendChild(temp);
+            }
+            // ow.style.display='block'
+            console.timeEnd("createElement控制台计时器一");
+        }
+
+
+        function b(){
+            console.time("innerHTML控制台计时器一");
+            var str = '';
+            for(var i =0 ; i < size ; i++){
+                str += `<p>${i}</p>`;
+            }
+            ow.innerHTML=str;
+            console.timeEnd("innerHTML控制台计时器一");
+        }
+
+        function c() {
+            console.time("createDocumentFragment控制台计时器一");
+            var oFragmeng = document.createDocumentFragment();
+            for(var i=0;i<size;i++){
+                var p = document.createElement('p');
+                p.innerText = i;
+                oFragmeng.appendChild(p);
+            }
+            ow.appendChild(oFragmeng);
+            console.timeEnd("createDocumentFragment控制台计时器一")
+        }
+        function clear() {
+            ow.innerHTML='';
+        }
+        clear();
+        a();
+        clear();
+        b();
+        clear();
+        c();
+    })()
+</script>
+</body>
+</html>

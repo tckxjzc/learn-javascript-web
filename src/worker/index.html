@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+    <title>worker</title>
+    <link rel="stylesheet" href="/static/lib/bootstrap.min.css" type="text/css" />
+    <style>
+        body{
+            padding: 10px;
+        }
+        .card{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center">
+        web worker 学习
+    </h1>
+    <div>
+        <form>
+            <div class="form-group">
+            <label>value</label>
+            <input class="form-control" id="textInput" type="text"/>
+
+            </div>
+            <div class="form-group">
+            <label>msg</label>
+            <input class="form-control" id="msgInput" type="text"/>
+
+            </div>
+            <button type="button" class="btn btn-success">submit</button>
+        </form>
+    </div>
+    <div class="card">
+        <a href="share.html" target="_blank">go to second ShareWorker page</a>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p>其他参考资料</p>
+        </div>
+        <div class="card-footer">
+            <p><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Worker" >MDN Worker Api</a></p>
+            <p>
+                <a target="_blank" href="http://www.alloyteam.com/2015/11/deep-in-web-worker/#prettyPhoto">
+                    [转向 Javascript 系列]深入理解 Web Worker
+                </a>
+            </p>
+        </div>
+    </div>
+    <script src="/static/lib/jquery.min.js"></script>
+    <script src="/static/lib/bootstrap.min.js"></script>
+    <script src="/worker/index.js"></script>
+</body>
+</html>

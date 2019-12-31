@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+    <title>图片中隐藏信息</title>
+    <link rel="stylesheet" href="/static/lib/bootstrap.min.css" type="text/css"/>
+    <style type="text/css">
+        #canvas{
+            background-color: rgba(189, 229, 237, 0.54);
+        }
+        form{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div >
+    <h1 class="text-center">图片处理1</h1>
+    <canvas id="canvas" width="800" height="600">
+
+    </canvas>
+    <form>
+        <div class="form-group">
+            <label>file</label>
+            <input class="form-control" id="fileUpload" type="file"/>
+
+        </div>
+    </form>
+    <div class="card">
+        <div class="card-body">
+         <p><a href="index.html">返回</a></p>
+        </div>
+    </div>
+</div>
+<script src="/static/lib/jquery.min.js"></script>
+<script src="/static/lib/bootstrap.min.js"></script>
+<script src="decode.js"></script>
+</body>
+</html>

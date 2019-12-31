@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+    <title>Web Apis</title>
+    <link rel="stylesheet" href="/static/lib/bootstrap.min.css" type="text/css"/>
+    <style>
+        body {
+            padding: 10px;
+        }
+
+        .card {
+            margin-top: 20px;
+        }
+        .btn{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="card">
+    <div class="card-body">
+
+    </div>
+    <button class="btn btn-primary" id="vibrate">vibrate</button>
+    <button  class="btn btn-success"  id="battery">battery</button>
+    <button  class="btn btn-dark"  id="fullscreen">fullscreen</button>
+    <button  class="btn btn-primary"  id="exitFullscreen">exitFullscreen</button>
+    <button  class="btn btn-outline-dark"  id="permissions">permissions</button>
+    <button  class="btn btn-danger"  id="geolocation">geolocation</button>
+    <button  class="btn btn-dark"  id="clip">clip</button>
+    <button  class="btn btn-success"  id="credential">credential</button>
+    <div>
+        <h1>参数</h1>
+        <script>
+            document.write('<p>navigator.maxTouchPoints:'+navigator.maxTouchPoints+'</p>');
+            document.write('<p>navigator.language:'+navigator.language+'</p>');
+            document.write('<p>navigator.languages:'+navigator.languages+'</p>');
+            document.write('<p>navigator.platform:'+navigator.platform+'</p>');
+            document.write('<p>navigator.doNotTrack:'+navigator.doNotTrack+'</p>');
+            document.write('<p>navigator.onLine:'+navigator.onLine+'</p>');
+        </script>
+    </div>
+    <script src="index.js">
+
+    </script>
+</div>
+<div id="wrapper">
+
+</div>
+</body>
+</html>

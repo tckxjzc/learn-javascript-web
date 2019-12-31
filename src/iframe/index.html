@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="/static/lib/bootstrap.min.css" type="text/css"/>
+    <title>iframe</title>
+    <style type="text/css">
+        iframe{
+            width: 100%;
+            height: 80vh;
+        }
+    </style>
+</head>
+<body>
+    <div>
+<!--        <iframe src="/iframe/iframe.html"></iframe>-->
+<!--        <iframe src="http://127.0.0.1:3000/iframe/iframe.html"></iframe>-->
+        <iframe src="http://10.107.12.50:3000/iframe/iframe.html"></iframe>
+    </div>
+    <script src="/static/lib/jquery.min.js"></script>
+    <script src="/static/lib/bootstrap.min.js"></script>
+    <script>
+        //跨域iframe无法访问,不会执行
+        window.frames[0].onload=function () {
+            console.log(45);
+            window.frames[0].document.body.innerText='5555'
+        };
+        function testA() {
+            console.log('i am TestA in parent');
+        }
+
+        window.onload=function () {
+            window.frames[0].postMessage('555','*')
+        };
+        window.onmessage=function (e) {
+            let data=e.data;
+            if(data.type=='url'){
+                let url=new URL(data.msg);
+                let newUrl=location.origin+url.pathname+url.search;
+                location.href=newUrl;
+            }
+        };
+        window.onmessage=function (e) {
+            // console.log('parent window.onmessage %o',e);
+            var data=e.data;
+            if(data.type=='url'){
+                var url=new URL(data.msg);
+                var newUrl=location.origin+url.pathname+url.search;
+                // console.log(location.origin+url.pathname+url.search);
+                location.href=newUrl;
+
+            }
+        };
+
+    </script>
+</body>
+</html>

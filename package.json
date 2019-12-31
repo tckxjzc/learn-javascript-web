@@ -1,0 +1,14 @@
+{
+  "name": "LearningJavascript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "tz",
+  "license": "MIT",
+  "scripts": {
+    "start": "gulp dev"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2"
+  }
+}

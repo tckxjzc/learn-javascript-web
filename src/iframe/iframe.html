@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+    <title>iframe</title>
+    <link rel="stylesheet" href="/static/lib/bootstrap.min.css" type="text/css"/>
+</head>
+<body>
+<div>
+    <p> i am in a iframe</p>
+    <p><a href="/indexedDB?test=5">indexedDB</a></p>
+</div>
+<button id="btnA" class="btn btn-success">btn A</button>
+<script src="/static/lib/jquery.min.js"></script>
+<script src="/static/lib/bootstrap.min.js"></script>
+<script>
+    btnA.onclick = function () {
+        console.log('btnA clicked');
+        window.parent.postMessage('55', '*');
+    };
+    window.onmessage = function (ev) {
+        console.log('child window.onmessage %o', ev);
+        var data = ev.data;
+        if (data.type == 5) {
+            window.parentUrl = data.url;
+        }
+    };
+    (function () {
+        if (self != top) {
+            document.body.addEventListener('click', function (e) {
+                var target = e.target;
+                if (target.nodeName.toLowerCase() == 'a' && target.href) {
+                    try {
+                        window.parent.postMessage({type: 'url', msg: target.href}, '*');
+                        // window.parent.postMessage({type: 'url', msg: target.href}, 'http://localhost:3000');
+                        e.preventDefault();
+                    } catch (e) {
+                        console.log(e);
+                    }
+                }
+            }, true);
+        }
+
+    })();
+</script>
+</body>
+</html>

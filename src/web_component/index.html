@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Component</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+
+    <link rel="stylesheet" href="/static/lib/bootstrap.min.css" type="text/css"/>
+
+</head>
+<body>
+    <template id="infoCardTemplate">
+        <style>
+            /*:host伪类，指代自定义元素本身*/
+            :host{
+                display: block;
+                border: 1px solid #ff2835;
+                background-color: #1e7e34;
+            }
+            .info-card{
+                background-color: #9fcdff;
+            }
+        </style>
+        <div class="info-card">
+            <img src="img-src">
+            <p></p>
+        </div>
+    </template>
+    <div>
+        <info-card src="/static/images/a.jpg" text="column entry archive"></info-card>
+
+    </div>
+<div class="card">
+    <div class="card-body">
+        <p>其他参考资料</p>
+    </div>
+    <div class="card-footer">
+        <p><a target="_blank" href="https://developer.mozilla.org/zh-CN/docs/Web/Web_Components" >MDN Web Components</a></p>
+        <p><a target="_blank" href="http://www.ruanyifeng.com/blog/2019/08/web_components.html" >Web Components 入门实例教程</a></p>
+    </div>
+</div>
+<script src="/static/lib/jquery.min.js"></script>
+<script src="/static/lib/bootstrap.min.js"></script>
+<!--注意位置-->
+    <script src="index.js"></script>
+</body>
+</html>

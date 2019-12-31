@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+    <title>图片中隐藏信息</title>
+    <link rel="stylesheet" href="/static/lib/bootstrap.min.css" type="text/css"/>
+    <style type="text/css">
+        #canvas{
+            background-color: rgba(189, 229, 237, 0.54);
+        }
+        #textCanvas{
+            background-color: rgba(237, 191, 212, 0.54);
+        }
+    </style>
+</head>
+<body>
+<div >
+    <h1 class="text-center">图片"隐写术"</h1>
+    <canvas id="canvas" width="800" height="600">
+
+    </canvas>
+    <canvas id="textCanvas" width="800" height="600">
+
+    </canvas>
+    <div id='outImage' class="img-fluid">
+
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <p><a href="decode.html">解密图片信息</a></p>
+        </div>
+        <div class="card-body">
+            <p>其他参考资料</p>
+        </div>
+        <div class="card-footer">
+            <p><a target="_blank" href="http://www.alloyteam.com/2016/03/image-steganography/" >
+                不能说的秘密——前端也能玩的图片隐写术
+            </a></p>
+            <p><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D" >
+                CanvasRenderingContext2D api
+            </a></p>
+
+        </div>
+    </div>
+</div>
+<script src="/static/lib/jquery.min.js"></script>
+<script src="/static/lib/bootstrap.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
