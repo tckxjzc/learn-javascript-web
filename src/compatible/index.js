@@ -1,10 +1,14 @@
-console.log('compatible test');
+function log(str){
+    document.write(`<p>${str}</p>`);
+}
+log('compatible test');
 
-console.log('React is '+window.React);
-console.log('ReactDOM is '+window.ReactDOM);
-console.log('localStorage is '+localStorage);
-console.log('promise is '+typeof  Promise);
-console.log('fetch is '+typeof  fetch);
-console.log('requestAnimationFrame is '+typeof  requestAnimationFrame);
-console.log('String.prototype.startsWith is '+typeof  String.prototype.startsWith);
-console.log(''.padStart(20,' ').replace(/\s/g,'\u00a0'));
+log('React is '+window.React);
+log('ReactDOM is '+window.ReactDOM);
+log('localStorage is '+localStorage);
+log('promise is '+typeof  Promise);
+log('fetch is '+typeof  fetch);
+log('requestAnimationFrame is '+typeof  requestAnimationFrame);
+log('String.prototype.startsWith is '+typeof  String.prototype.startsWith);
+log("WebAssembly "+typeof  WebAssembly);
+

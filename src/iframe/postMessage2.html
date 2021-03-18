@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>postMessage</title>
+</head>
+<body>
+<script>
+    window.onmessage=function (e){
+        console.log(e);
+    }
+    function handleClick(){
+        window.opener.postMessage({
+            text:'22'
+        });
+        window.opener.focus();
+        window.close();
+    }
+    window.onbeforeunload=function (e){
+        window.opener.postMessage({
+            text:'2233'
+        })
+        e.preventDefault();
+        return e.returnValue = "Are you sure you want to exit?";
+    }
+
+
+</script>
+<input id="name"/>
+<button onclick="handleClick()">click2</button>
+<script>
+    const beforeUnloadListener = (event) => {
+        event.preventDefault();
+        return event.returnValue = "Are you sure you want to exit?";
+    };
+
+    const nameInput = document.querySelector("#name");
+
+    nameInput.addEventListener("input", (event) => {
+        if (event.target.value !== "") {
+            addEventListener("beforeunload", beforeUnloadListener, {capture: true});
+        } else {
+            removeEventListener("beforeunload", beforeUnloadListener, {capture: true});
+        }
+    });
+</script>
+
+</body>
+</html>

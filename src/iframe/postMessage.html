@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>postMessage</title>
+</head>
+<body>
+<script>
+    window.onmessage=function (e){
+        console.log(e);
+        window.focus();
+    }
+    function handleClick(){
+        // window.open('./postMessage2.html',"22", "resizable,menubar,scrollbars,status");
+        // window.open('./postMessage2.html',"22", "resizable=yes,scrollbars=yes,status=yes");
+        window.open('./postMessage2.html');
+    }
+
+</script>
+<button onclick="handleClick()">click</button>
+
+
+</body>
+</html>
