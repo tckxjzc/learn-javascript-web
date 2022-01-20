@@ -7,7 +7,7 @@ gulp.task('dev', () => {
         open:false,
         server: {
             baseDir: [path.resolve(__dirname, './src')],
-            // baseDir:'',
+            // baseDir:'/Users/tckxjzc/Documents/github/netfix',
             routes:{
                 "/static":path.resolve(__dirname, './static'),
             },
